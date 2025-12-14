@@ -17,7 +17,7 @@
   --font-accent: 'Georgia', serif;
 
   /* Spacing */
-  --nav-height: 80px;
+  --nav-height: 140px;
 }
 
 * {
@@ -64,7 +64,7 @@ a {
 }
 
 .logo img {
-  height: 70px;
+  height: 120px;
   width: auto;
 }
 
