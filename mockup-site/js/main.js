@@ -1,22 +1,23 @@
 // J & J Scooter Rentals - Main JavaScript
 
 // ===== TRADE DAYS DATES 2025 =====
+// Using Date(year, month-1, day) format for local timezone
 const tradeDays2025 = [
-  { start: new Date('2025-01-02'), end: new Date('2025-01-05'), label: 'January 2-5' },
-  { start: new Date('2025-01-30'), end: new Date('2025-02-02'), label: 'Jan 30 - Feb 2' },
-  { start: new Date('2025-02-27'), end: new Date('2025-03-02'), label: 'Feb 27 - Mar 2' },
-  { start: new Date('2025-03-27'), end: new Date('2025-03-30'), label: 'March 27-30' },
-  { start: new Date('2025-05-01'), end: new Date('2025-05-04'), label: 'May 1-4' },
-  { start: new Date('2025-05-29'), end: new Date('2025-06-01'), label: 'May 29 - Jun 1' },
-  { start: new Date('2025-07-03'), end: new Date('2025-07-06'), label: 'July 3-6' },
-  { start: new Date('2025-07-31'), end: new Date('2025-08-03'), label: 'Jul 31 - Aug 3' },
-  { start: new Date('2025-08-28'), end: new Date('2025-08-31'), label: 'August 28-31' },
-  { start: new Date('2025-10-02'), end: new Date('2025-10-05'), label: 'October 2-5' },
-  { start: new Date('2025-10-30'), end: new Date('2025-11-02'), label: 'Oct 30 - Nov 2' },
-  { start: new Date('2025-11-27'), end: new Date('2025-11-30'), label: 'November 27-30' },
-  // 2026 dates (examples)
-  { start: new Date('2026-01-01'), end: new Date('2026-01-04'), label: 'January 1-4, 2026' },
-  { start: new Date('2026-01-29'), end: new Date('2026-02-01'), label: 'Jan 29 - Feb 1, 2026' },
+  { start: new Date(2025, 0, 2), end: new Date(2025, 0, 5), label: 'January 2-5' },
+  { start: new Date(2025, 0, 30), end: new Date(2025, 1, 2), label: 'Jan 30 - Feb 2' },
+  { start: new Date(2025, 1, 27), end: new Date(2025, 2, 2), label: 'Feb 27 - Mar 2' },
+  { start: new Date(2025, 2, 27), end: new Date(2025, 2, 30), label: 'March 27-30' },
+  { start: new Date(2025, 4, 1), end: new Date(2025, 4, 4), label: 'May 1-4' },
+  { start: new Date(2025, 4, 29), end: new Date(2025, 5, 1), label: 'May 29 - Jun 1' },
+  { start: new Date(2025, 6, 3), end: new Date(2025, 6, 6), label: 'July 3-6' },
+  { start: new Date(2025, 6, 31), end: new Date(2025, 7, 3), label: 'Jul 31 - Aug 3' },
+  { start: new Date(2025, 7, 28), end: new Date(2025, 7, 31), label: 'August 28-31' },
+  { start: new Date(2025, 9, 2), end: new Date(2025, 9, 5), label: 'October 2-5' },
+  { start: new Date(2025, 9, 30), end: new Date(2025, 10, 2), label: 'Oct 30 - Nov 2' },
+  { start: new Date(2025, 10, 27), end: new Date(2025, 10, 30), label: 'November 27-30' },
+  // 2026 dates
+  { start: new Date(2026, 0, 1), end: new Date(2026, 0, 4), label: 'January 1-4, 2026' },
+  { start: new Date(2026, 0, 29), end: new Date(2026, 1, 1), label: 'Jan 29 - Feb 1, 2026' },
 ];
 
 // ===== COUNTDOWN TIMER =====
