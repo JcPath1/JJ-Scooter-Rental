@@ -37,8 +37,9 @@
   <!-- Standard Scooter -->
   <div class="product-page">
     <div class="product-layout">
-      <div class="product-image-large">
+      <div class="product-image-large" style="position: relative;">
         <img src="images/standard-scooter.png" alt="Standard Scooter">
+        <span class="image-note">*Not actual unit</span>
       </div>
       <div class="product-details">
         <h1>Standard Scooter</h1>
@@ -72,8 +73,9 @@
   <!-- Oversized Scooter -->
   <div class="product-page">
     <div class="product-layout">
-      <div class="product-image-large">
+      <div class="product-image-large" style="position: relative;">
         <img src="images/oversized-scooter.jpg" alt="Oversized Scooter">
+        <span class="image-note">*Not actual unit</span>
       </div>
       <div class="product-details">
         <h1>Oversized Scooter</h1>
@@ -108,8 +110,9 @@
   <!-- Pull Wagon -->
   <div class="product-page">
     <div class="product-layout">
-      <div class="product-image-large">
+      <div class="product-image-large" style="position: relative;">
         <img src="images/wagon.png" alt="Pull Wagon">
+        <span class="image-note">*Not actual unit</span>
       </div>
       <div class="product-details">
         <h1>Pull Wagon</h1>
@@ -174,6 +177,32 @@
       <p>&copy; 2025 J & J Scooter Rentals. Canton, Texas.</p>
     </div>
   </footer>
+
+  <!-- Ottos Automation Chat Widget -->
+  <div class="chat-widget">
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="avatar">🤖</div>
+          <div>
+            <div class="name">Ottos</div>
+            <div class="status">Online - Ready to help!</div>
+          </div>
+        </div>
+        <button class="chat-close" onclick="toggleChat()">×</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-message bot">
+          Hi! I'm Ottos, your virtual assistant. Ask me anything about our scooter rentals - hours, pricing, returns, or what to do if you have a problem!
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Type your question..." onkeypress="handleChatKeypress(event)">
+        <button class="chat-send-btn" onclick="sendChatMessage()">➤</button>
+      </div>
+    </div>
+    <div class="chat-bubble" onclick="toggleChat()">💬</div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

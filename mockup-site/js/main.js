@@ -254,6 +254,104 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// ===== OTTOS AUTOMATION CHAT =====
+const chatResponses = {
+  'hours': 'We\'re open during Trade Days only:\n• Thursday-Saturday: 8AM - 5PM\n• Sunday: 8AM - 4PM',
+  'return': 'Please return your rental by closing time on the day of your rental. That\'s 5PM Thursday-Saturday, or 4PM on Sunday.',
+  'breakdown': 'If your scooter breaks down, call us immediately at 972-979-1722 and we\'ll bring you a replacement right away!',
+  'price': 'All rentals are $55 per day. We also offer $5 off for seniors (55+) and groups of 3 or more!',
+  'location': 'We\'re located at 367 N Trade Days Blvd, Canton TX - 1 mile south of I-20 on Hwy 19, next to IAMERICAFLAGS, near the East Gate.',
+  'parking': 'Free parking is available across the street at the Pecan Tree lot.',
+  'weight': 'Our Standard scooters hold up to 350 lbs. Our Oversized scooters hold up to 500 lbs with extra-large seats.',
+  'battery': 'Standard scooters have a 25-mile range, Oversized have 18 miles. Both are plenty for a full day of shopping!',
+  'reservation': 'You can reserve online at our Book Now page for daily rentals, or just walk up during Trade Days!',
+  'cancel': 'Cancellations 72+ hours before get a full refund, 24-72 hours get 50%, less than 24 hours are non-refundable.',
+  'wagon': 'Our pull wagons are heavy-duty with all-terrain wheels - perfect for hauling your Trade Days treasures or kids!',
+  'payment': 'We accept cash, credit cards, and debit cards.',
+  'default': 'I\'m here to help! You can ask me about hours, pricing, returns, breakdowns, location, or anything else about our scooter rentals. Or call us at 972-979-1722!'
+};
+
+function getChatResponse(message) {
+  const msg = message.toLowerCase();
+
+  if (msg.includes('hour') || msg.includes('open') || msg.includes('close') || msg.includes('time')) {
+    return chatResponses.hours;
+  } else if (msg.includes('return') || msg.includes('bring back')) {
+    return chatResponses.return;
+  } else if (msg.includes('break') || msg.includes('broke') || msg.includes('stuck') || msg.includes('problem')) {
+    return chatResponses.breakdown;
+  } else if (msg.includes('price') || msg.includes('cost') || msg.includes('how much') || msg.includes('$')) {
+    return chatResponses.price;
+  } else if (msg.includes('where') || msg.includes('location') || msg.includes('address') || msg.includes('find you')) {
+    return chatResponses.location;
+  } else if (msg.includes('park')) {
+    return chatResponses.parking;
+  } else if (msg.includes('weight') || msg.includes('capacity') || msg.includes('heavy') || msg.includes('big')) {
+    return chatResponses.weight;
+  } else if (msg.includes('battery') || msg.includes('charge') || msg.includes('long') || msg.includes('range')) {
+    return chatResponses.battery;
+  } else if (msg.includes('reserv') || msg.includes('book') || msg.includes('reserve')) {
+    return chatResponses.reservation;
+  } else if (msg.includes('cancel') || msg.includes('refund')) {
+    return chatResponses.cancel;
+  } else if (msg.includes('wagon')) {
+    return chatResponses.wagon;
+  } else if (msg.includes('pay') || msg.includes('card') || msg.includes('cash')) {
+    return chatResponses.payment;
+  } else {
+    return chatResponses.default;
+  }
+}
+
+function toggleChat() {
+  const chatWindow = document.getElementById('chatWindow');
+  if (chatWindow) {
+    chatWindow.classList.toggle('open');
+  }
+}
+
+function sendChatMessage() {
+  const input = document.getElementById('chatInput');
+  const messages = document.getElementById('chatMessages');
+  const message = input.value.trim();
+
+  if (!message || !messages) return;
+
+  // Add user message
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-message user';
+  userMsg.textContent = message;
+  messages.appendChild(userMsg);
+
+  input.value = '';
+  messages.scrollTop = messages.scrollHeight;
+
+  // Show typing indicator
+  const typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.id = 'typingIndicator';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  messages.appendChild(typing);
+  messages.scrollTop = messages.scrollHeight;
+
+  // Bot response after delay
+  setTimeout(() => {
+    typing.remove();
+    const botMsg = document.createElement('div');
+    botMsg.className = 'chat-message bot';
+    botMsg.textContent = getChatResponse(message);
+    messages.appendChild(botMsg);
+    messages.scrollTop = messages.scrollHeight;
+  }, 1500);
+}
+
+function handleChatKeypress(e) {
+  if (e.key === 'Enter') {
+    sendChatMessage();
+  }
+}
+
 // Console message
 console.log('%c🛵 J & J Scooter Rentals', 'font-size: 20px; color: #E31837;');
 console.log('%cWhy Walk When You Can Ride?', 'font-size: 14px; color: #FFD700;');
+console.log('%c🤖 Powered by Ottos Automation', 'font-size: 12px; color: #666;');
