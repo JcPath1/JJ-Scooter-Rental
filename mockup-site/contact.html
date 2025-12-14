@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - J & J Scooter Rentals</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="J & J Scooter Rentals">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rentals.html">Rentals</a></li>
+        <li><a href="book-now.html">Book Now</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="tel:972-979-1722" class="nav-phone">
+        <span>📞</span> 972-979-1722
+      </a>
+    </nav>
+  </header>
+
+  <!-- Page Title -->
+  <div class="section-title" style="background: linear-gradient(135deg, var(--primary-red), var(--dark-red)); padding: 50px 20px; color: white;">
+    <h2 style="color: var(--primary-yellow);">Contact Us</h2>
+    <p style="color: white;">Questions? We're here to help!</p>
+  </div>
+
+  <!-- Contact Content -->
+  <div class="contact-page">
+    <div class="contact-card">
+      <div style="font-size: 4rem;">📞</div>
+      <p class="phone"><a href="tel:972-979-1722">972-979-1722</a></p>
+
+      <div class="address">
+        <strong>J & J Scooter Rentals</strong><br>
+        367 North Trade Days Blvd.<br>
+        Canton, TX 75103
+      </div>
+
+      <div style="background: var(--light-yellow); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+        <strong>Trade Days Hours Only:</strong><br>
+        Thu-Sat: 8AM - 5PM | Sun: 8AM - 4PM
+      </div>
+
+      <a href="book-now.html" class="book-now-btn" style="display: inline-block; margin-bottom: 20px;">
+        Make a Reservation
+      </a>
+
+      <p style="color: var(--gray); font-size: 0.9rem;">
+        Or just stop by during Trade Days — walk-ups welcome!
+      </p>
+    </div>
+
+    <!-- Contact Form -->
+    <div style="margin-top: 40px;">
+      <h3 style="text-align: center; margin-bottom: 20px;">Send Us a Message</h3>
+      <form class="booking-form" style="max-width: 500px; margin: 0 auto;" onsubmit="event.preventDefault(); alert('Message sent! (Demo only)');">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="John Smith" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(555) 123-4567">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; min-height: 120px; font-family: inherit;" placeholder="How can we help you?" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>J & J Scooter Rentals</h4>
+        <p style="color: #aaa;">Serving Canton First Monday Trade Days</p>
+        <p class="phone" style="margin-top: 15px;">972-979-1722</p>
+      </div>
+      <div class="footer-section">
+        <h4>Rentals</h4>
+        <a href="rentals.html">Standard Scooter</a>
+        <a href="rentals.html">Oversized Scooter</a>
+        <a href="rentals.html">Pull Wagon</a>
+      </div>
+      <div class="footer-section">
+        <h4>Info</h4>
+        <a href="location.html">Location & Directions</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-section">
+        <h4>Trade Days Hours</h4>
+        <p style="color: #aaa;">Thu-Sat: 8AM - 5PM</p>
+        <p style="color: #aaa;">Sunday: 8AM - 4PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 J & J Scooter Rentals. Canton, Texas.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
