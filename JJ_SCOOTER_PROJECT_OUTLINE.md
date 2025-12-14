@@ -35,7 +35,7 @@ Cash, Credit Cards, Debit Cards
 ### Mobility Scooters — 75 Units (ALL 4-Wheel)
 
 #### Standard Scooters — 55 Units
-**Model Reference:** Shoprider Sprinter XL4 (or similar)
+**Internal Reference:** Shoprider Sprinter XL4 (or similar) — NOT shown on website
 
 | Specification | Value |
 |---------------|-------|
@@ -53,8 +53,8 @@ Cash, Credit Cards, Debit Cards
 
 ---
 
-#### Big & Tall Scooters — 20 Units
-**Model Reference:** Golden Avenger 4-Wheel HD Scooter (or similar)
+#### Oversized Scooters — 20 Units
+**Internal Reference:** Golden Avenger 4-Wheel HD Scooter (or similar) — NOT shown on website
 
 | Specification | Value |
 |---------------|-------|
@@ -70,7 +70,7 @@ Cash, Credit Cards, Debit Cards
 | Tire Type | Pneumatic |
 | Features | Oversized contoured seat, adjustable headrest, extra-long armrests, handlebar tiller, 4-way flashers, safety lights |
 
-**Best for:** Larger riders, big & tall customers, all-day outdoor use, rough terrain
+**Best for:** Larger riders, all-day outdoor use, rough terrain
 
 ---
 
@@ -90,7 +90,7 @@ Cash, Credit Cards, Debit Cards
 | Rental Type | Daily Rate (Reservation) | Hourly (Walk-up Only) |
 |-------------|--------------------------|----------------------|
 | Standard Scooter | $____ | $____ |
-| Big & Tall Scooter | $____ | $____ |
+| Oversized Scooter | $____ | $____ |
 | Pull Wagon | $____ | $____ |
 
 ### Discounts
@@ -179,7 +179,7 @@ Cash, Credit Cards, Debit Cards
 **Content Sections:**
 - "450+ Acres of Treasures — Too Big to Walk!" highlight
 - Brief intro to the business
-- Rental options preview (3 cards: Standard Scooter, Big & Tall Scooter, Wagon)
+- Rental options preview (3 cards: Standard Scooter, Oversized Scooter, Wagon)
 - Next Trade Days date with countdown
 - "Walk-ups Welcome" badge
 - Location map/directions
@@ -195,9 +195,9 @@ Cash, Credit Cards, Debit Cards
 - "Book Now" button
 - Note: "Hourly rentals available as walk-ups only"
 
-#### Big & Tall Scooter (4-Wheel Heavy Duty)
+#### Oversized Scooter (4-Wheel Heavy Duty)
 - Photo (owner to provide)
-- Description: Extra-large seat and 500 lb capacity for our bigger customers
+- Description: Extra-large seat and 500 lb capacity for maximum comfort
 - Features list (from specs above)
 - Price: $____/day
 - "Book Now" button
@@ -238,9 +238,9 @@ Cash, Credit Cards, Debit Cards
 - What's your cancellation policy? → (Include full policy)
 
 **Equipment:**
-- What types of scooters do you have? → Standard 4-wheel and Big & Tall 4-wheel
-- What is the weight limit? → Standard: 350 lbs, Big & Tall: 500 lbs
-- How long does the battery last? → Standard: 25 miles, Big & Tall: 18 miles
+- What types of scooters do you have? → Standard 4-wheel and Oversized 4-wheel
+- What is the weight limit? → Standard: 350 lbs, Oversized: 500 lbs
+- How long does the battery last? → Standard: 25 miles, Oversized: 18 miles
 - What if the scooter breaks down? → Call us immediately, we'll bring a replacement
 
 **Payment & Policies:**
@@ -465,7 +465,7 @@ The owner needs to be able to:
 ## Notes
 
 - All scooters are 4-wheel (NO 3-wheel scooters)
-- Big & Tall scooters have larger seats, not just higher weight capacity
+- Oversized scooters have larger seats, not just higher weight capacity
 - Daily reservations online only; hourly is walk-up only
 - Maximum 2 shows bookable in advance
 - Walk-ups always welcome based on availability
@@ -475,15 +475,11 @@ The owner needs to be able to:
 
 ---
 
-## Scooter Reference Links
+## Internal Reference Only (NOT for website)
 
-**Standard Scooter (Sprinter XL4):**
-https://www.1800wheelchair.com/product/sprinter-xl4
-
-**Big & Tall Scooter (Golden Avenger HD):**
-https://www.ameriglide-raleigh-nc.com/products/Golden-Avenger---4-Wheel-HD-Scooter.html
-
-*(Note: Cannot pull images directly from these sites - owner will provide actual photos of their equipment)*
+Model references for owner's use only:
+- Standard: Shoprider Sprinter XL4 or similar
+- Oversized: Golden Avenger 4-Wheel HD or similar
 
 ---
 
