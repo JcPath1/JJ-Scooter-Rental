@@ -40,9 +40,9 @@
 
       <!-- Step 1: Select Date -->
       <div class="form-section">
-        <h3>1. Select Trade Days Date</h3>
+        <h3>1. Select Your Rental Day(s)</h3>
         <p style="color: var(--gray); margin-bottom: 15px; font-size: 0.9rem;">
-          Showing next 2 available Trade Days weekends
+          Click to select one or more days (click again to deselect)
         </p>
         <div class="date-grid" id="dateGrid">
           <!-- Dates populated by JavaScript -->
@@ -136,8 +136,12 @@
       <div class="order-summary">
         <h4 style="margin-bottom: 15px;">Order Summary</h4>
         <div class="summary-row">
-          <span>Date:</span>
-          <span id="summaryDate">Select a date</span>
+          <span>Date(s):</span>
+          <span id="summaryDate">Select day(s)</span>
+        </div>
+        <div class="summary-row">
+          <span>Days:</span>
+          <span id="summaryDays">-</span>
         </div>
         <div class="summary-row">
           <span>Equipment:</span>

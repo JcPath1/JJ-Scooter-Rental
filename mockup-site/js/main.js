@@ -61,7 +61,7 @@ function updateCountdown() {
 // ===== BOOKING FORM =====
 const PRICE = 55;
 let quantities = { standard: 0, oversized: 0, wagon: 0 };
-let selectedDate = null;
+let selectedDates = []; // Changed to array for multiple days
 let discountApplied = false;
 let discountAmount = 0;
 
@@ -80,26 +80,101 @@ function getUpcomingTradeDays() {
   return upcoming;
 }
 
+function getIndividualDays(tradeDays) {
+  const days = [];
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  for (const td of tradeDays) {
+    let current = new Date(td.start);
+    while (current <= td.end) {
+      const dayName = dayNames[current.getDay()];
+      const monthName = monthNames[current.getMonth()];
+      const dateNum = current.getDate();
+      const year = current.getFullYear();
+
+      days.push({
+        date: new Date(current),
+        dayName: dayName,
+        label: `${dayName}, ${monthName} ${dateNum}`,
+        shortLabel: `${monthName} ${dateNum}`,
+        id: `${year}-${current.getMonth() + 1}-${dateNum}`
+      });
+
+      current.setDate(current.getDate() + 1);
+    }
+  }
+
+  return days;
+}
+
 function populateDateGrid() {
   const dateGrid = document.getElementById('dateGrid');
   if (!dateGrid) return;
 
   const upcoming = getUpcomingTradeDays();
+  const allDays = getIndividualDays(upcoming);
 
-  dateGrid.innerHTML = upcoming.map((td, index) => `
-    <div class="date-option" onclick="selectDate(${index}, '${td.label}')" id="date-${index}">
-      <div class="day">Trade Days</div>
-      <div class="date">${td.label}</div>
-    </div>
-  `).join('');
+  // Group days by weekend
+  let currentWeekend = [];
+  let weekends = [];
+  let lastEnd = null;
+
+  for (const day of allDays) {
+    if (lastEnd && (day.date - lastEnd) > (2 * 24 * 60 * 60 * 1000)) {
+      // More than 2 days gap = new weekend
+      if (currentWeekend.length > 0) {
+        weekends.push(currentWeekend);
+      }
+      currentWeekend = [];
+    }
+    currentWeekend.push(day);
+    lastEnd = day.date;
+  }
+  if (currentWeekend.length > 0) {
+    weekends.push(currentWeekend);
+  }
+
+  let html = '';
+  for (let w = 0; w < weekends.length; w++) {
+    const weekend = weekends[w];
+    const firstDay = weekend[0];
+    const lastDay = weekend[weekend.length - 1];
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const weekendLabel = `${monthNames[firstDay.date.getMonth()]} ${firstDay.date.getDate()} - ${lastDay.date.getDate()}`;
+
+    html += `<div class="weekend-group">
+      <div class="weekend-label">Trade Days: ${weekendLabel}</div>
+      <div class="days-row">`;
+
+    for (const day of weekend) {
+      html += `
+        <div class="date-option" onclick="toggleDate('${day.id}', '${day.label}')" id="date-${day.id}">
+          <div class="day">${day.dayName}</div>
+          <div class="date">${day.shortLabel}</div>
+        </div>`;
+    }
+
+    html += `</div></div>`;
+  }
+
+  dateGrid.innerHTML = html;
 }
 
-function selectDate(index, label) {
-  // Remove selected from all
-  document.querySelectorAll('.date-option').forEach(el => el.classList.remove('selected'));
-  // Add selected to clicked
-  document.getElementById(`date-${index}`).classList.add('selected');
-  selectedDate = label;
+function toggleDate(id, label) {
+  const el = document.getElementById(`date-${id}`);
+  const index = selectedDates.findIndex(d => d.id === id);
+
+  if (index > -1) {
+    // Already selected, remove it
+    selectedDates.splice(index, 1);
+    el.classList.remove('selected');
+  } else {
+    // Not selected, add it
+    selectedDates.push({ id, label });
+    el.classList.add('selected');
+  }
+
   updateSummary();
 }
 
@@ -147,11 +222,12 @@ function applyDiscount() {
 
 function updateSummary() {
   const totalQty = quantities.standard + quantities.oversized + quantities.wagon;
-  const subtotal = totalQty * PRICE;
+  const numDays = selectedDates.length || 1; // At least 1 for display
+  const subtotal = totalQty * PRICE * (selectedDates.length > 0 ? numDays : 0);
 
-  // Recalculate discount if applied
+  // Recalculate discount if applied (per rental per day)
   if (discountApplied) {
-    discountAmount = 5 * totalQty;
+    discountAmount = 5 * totalQty * (selectedDates.length > 0 ? numDays : 0);
   }
 
   const total = subtotal - discountAmount;
@@ -163,13 +239,20 @@ function updateSummary() {
   if (quantities.wagon > 0) equipmentParts.push(`${quantities.wagon} Wagon`);
 
   const summaryDate = document.getElementById('summaryDate');
+  const summaryDays = document.getElementById('summaryDays');
   const summaryEquipment = document.getElementById('summaryEquipment');
   const summarySubtotal = document.getElementById('summarySubtotal');
   const summaryDiscount = document.getElementById('summaryDiscount');
   const discountRow = document.getElementById('discountRow');
   const summaryTotal = document.getElementById('summaryTotal');
 
-  if (summaryDate) summaryDate.textContent = selectedDate || 'Select a date';
+  // Format selected dates for display
+  const dateText = selectedDates.length > 0
+    ? selectedDates.map(d => d.label).join(', ')
+    : 'Select day(s)';
+
+  if (summaryDate) summaryDate.textContent = dateText;
+  if (summaryDays) summaryDays.textContent = selectedDates.length > 0 ? `${selectedDates.length} day(s)` : '-';
   if (summaryEquipment) summaryEquipment.textContent = equipmentParts.length > 0 ? equipmentParts.join(', ') : 'None selected';
   if (summarySubtotal) summarySubtotal.textContent = `$${subtotal.toFixed(2)}`;
 
@@ -190,8 +273,8 @@ function handleBookingSubmit(e) {
 
   const totalQty = quantities.standard + quantities.oversized + quantities.wagon;
 
-  if (!selectedDate) {
-    alert('Please select a Trade Days date.');
+  if (selectedDates.length === 0) {
+    alert('Please select at least one rental day.');
     return;
   }
 
@@ -208,7 +291,8 @@ function handleBookingSubmit(e) {
   const modal = document.getElementById('confirmationModal');
   const details = document.getElementById('confirmationDetails');
 
-  const subtotal = totalQty * PRICE;
+  const numDays = selectedDates.length;
+  const subtotal = totalQty * PRICE * numDays;
   const total = subtotal - discountAmount;
 
   const equipmentParts = [];
@@ -216,16 +300,19 @@ function handleBookingSubmit(e) {
   if (quantities.oversized > 0) equipmentParts.push(`${quantities.oversized}x Oversized Scooter`);
   if (quantities.wagon > 0) equipmentParts.push(`${quantities.wagon}x Pull Wagon`);
 
+  const datesText = selectedDates.map(d => d.label).join('<br>');
+
   details.innerHTML = `
-    <p><strong>Date:</strong> ${selectedDate}</p>
+    <p><strong>Date(s):</strong><br>${datesText}</p>
     <p><strong>Equipment:</strong><br>${equipmentParts.join('<br>')}</p>
+    <p><strong>Days:</strong> ${numDays} day(s) × $${PRICE}/day each</p>
     <p><strong>Total:</strong> $${total.toFixed(2)}</p>
     <p><strong>Name:</strong> ${name}</p>
     <p><strong>Phone:</strong> ${phone}</p>
     <hr style="margin: 15px 0; border: 1px solid #ddd;">
     <p style="font-size: 0.9rem; color: var(--gray);">
       📱 An SMS confirmation has been sent to your phone.<br>
-      You'll also receive reminders before your rental date.
+      You'll also receive reminders before your rental date(s).
     </p>
   `;
 

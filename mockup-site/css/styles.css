@@ -435,18 +435,38 @@ a {
 }
 
 .date-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weekend-group {
+  background: var(--light-gray);
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.weekend-label {
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.days-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
 }
 
 .date-option {
-  padding: 15px;
+  padding: 12px 8px;
   border: 2px solid #ddd;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s;
+  background: var(--white);
 }
 
 .date-option:hover {
@@ -1229,8 +1249,8 @@ a {
     font-size: 1.8rem;
   }
 
-  .date-grid {
-    grid-template-columns: 1fr;
+  .days-row {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .equipment-row {
