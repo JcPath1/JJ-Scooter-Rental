@@ -64,7 +64,7 @@ a {
 }
 
 .logo img {
-  height: 60px;
+  height: 70px;
   width: auto;
 }
 
@@ -127,10 +127,23 @@ a {
   color: var(--white);
 }
 
+.hero-headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+.hero-logo {
+  width: 120px;
+  height: auto;
+}
+
 .hero h1 {
   font-size: 3.5rem;
   font-weight: 800;
-  margin-bottom: 15px;
+  margin: 0;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
@@ -981,6 +994,14 @@ a {
 
   .hero h1 {
     font-size: 2.2rem;
+  }
+
+  .hero-logo {
+    width: 80px;
+  }
+
+  .hero-headline {
+    gap: 15px;
   }
 
   .hero .subtitle {
