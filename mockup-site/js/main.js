@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// ===== OTTOS AUTOMATION CHAT =====
+// ===== OTTO AUTOMATION CHAT =====
 const chatResponses = {
   'hours': 'We\'re open during Trade Days only:\n• Thursday-Saturday: 8AM - 5PM\n• Sunday: 8AM - 4PM',
   'return': 'Please return your rental by closing time on the day of your rental. That\'s 5PM Thursday-Saturday, or 4PM on Sunday.',
@@ -354,4 +354,4 @@ function handleChatKeypress(e) {
 // Console message
 console.log('%c🛵 J & J Scooter Rentals', 'font-size: 20px; color: #E31837;');
 console.log('%cWhy Walk When You Can Ride?', 'font-size: 14px; color: #FFD700;');
-console.log('%c🤖 Powered by Ottos Automation', 'font-size: 12px; color: #666;');
+console.log('%c🤖 Powered by OTTO Automation', 'font-size: 12px; color: #666;');
